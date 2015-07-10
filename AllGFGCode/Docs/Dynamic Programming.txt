@@ -1,0 +1,32 @@
+Dynamic Programming:
+
+Use : When already computed results can be stored for later use to save time in same computation again.
+Should satisfy two conditions:
+1) Overlapping Subproblems:When already computed results can be stored for
+later use to save time in same computation again.
+Eg: Fibonacci: as Fib(n)=Fib(n-1)+Fib(n-2)
+2) Optimal Substructure: When use of optimal solution(result) for sub problem provides optimal 
+solution for bigger problem.
+Eg: 1.  Fibonacci: as Fib(n)=Fib(n-1)+Fib(n-2) as Fib(n-1) is only solution so optimal also.
+2. If you want to go from A to C , If A to B is cheapest and B to C is cheapest then sum of both will be cheapest.
+But if A to B is cheapest and B to C is not cheapest result then B to C is not optimal substructure.
+
+DP can be implemented in two ways:
+
+Memoization: Look in the table, if result present then use it , if not then store this result to be used later.
+divide & conquer algo(eg: recursion) + memoization = top-down dynamic programming
+
+Dynamic programming is typically implemented using tabulation, but can also be implemented using memoization.
+
+Tabulation: Used in Bottom-up dynamic programming. calculate result for smaller sub problems and use that result for solution of bigger problems
+
+When you solve a dynamic programming problem using tabulation you solve the problem "bottom up", i.e., by solving all related sub-problems first, typically by filling up an n-dimensional table. Based on the results in the table, the solution to the "top" / original problem is then computed.
+
+If you use memoization to solve the problem you do it by maintaining a map of already solved sub problems. You do it "top down" in the sense that you solve the "top" problem first (which typically recurses down to solve the sub-problems).
+If all subproblems must be solved at least once, a bottom-up dynamic-programming algorithm usually outperforms a top-down memoized algorithm by a constant factor
+In bottom-up,  No overhead for recursion and less overhead for maintaining table
+If some subproblems in the subproblem space need not be solved at all, the memoized solution has the advantage of solving only those subproblems that are definitely required
+
+Simplest way to use top down approach is: write solution and insert memoization in between to store results of sub problems
+
+In Memoized version, table is filled on demand while in tabulated version, starting from the first entry, all entries are filled one by one. Unlike the tabulated version, all entries of the lookup table are not necessarily filled in memoized version

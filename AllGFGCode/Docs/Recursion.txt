@@ -1,0 +1,24 @@
+In a true functional, recursive style you "retain" information by passing it as parameters and/or return types.
+
+Let me illustrate with a simple example, let's say that you want to recursively calculate the sum of the
+elements in an int[]. Here, the state (the information that needs to be retained between recursive calls)
+is the current index in the array and the sum so far. Here's how to do it:
+
+public int sum(int[] array) {
+    return sum(array, 0, 0); 
+}
+
+private int sum(int[] array, int idx, int acc) {
+    if (idx == array.length)
+        return acc;
+    return sum(array, idx+1, acc+array[idx]);
+}
+
+Call it like this:
+
+int[] array = {1, 2, 3};
+System.out.println(sum(array));
+
+As you can see, there's no need to declare (static or instance) attributes, and no need to pass and modify
+mutable objects (lists, maps) - I'm not even using local variables, because all the required information needed 
+to solve the problem is present as method parameters.
